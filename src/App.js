@@ -1,5 +1,5 @@
 import "./App.css";
-import Navbar from "./components/navegacion/navbar";
+import Navbar from "./components/navegacion/Navbar";
 import inicio from "./components/paginas/inicio";
 import remeras from "./components/paginas/remeras";
 import tazas from "./components/paginas/tazas";
@@ -7,6 +7,7 @@ import Cards from "./components/Cards/Cards";
 import FlexWrapper from "./components/flexWrapper/flexWrapper";
 import Button from "./components/button/Button";
 import getItems from "./services/mockAsyncService";
+
 
 import imgRemeras from "./assets/img/Remeras.png";
 import GRIZZY from "./assets/img/GRIZZY.png";
@@ -18,7 +19,7 @@ import Idolos from "./assets/img/Idolos.png";
 import vasoBad from "./assets/img/vasoBad.png";
 import Set from "./assets/img/set.png";
 import Jardin from "./assets/img/Jardin.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const data = [
@@ -107,12 +108,13 @@ function App() {
 
 
   const [item, setItem] = useState([]);
+  useEffect(() => {
   
   getItems().then((respuesta) => {
   console.log(respuesta);
   setItem(respuesta);
 })
-  
+  }, [])
   return (
     <>
 
