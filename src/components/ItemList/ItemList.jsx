@@ -1,3 +1,7 @@
+import Cards from "../Cards/Cards"
+import FlexWrapper from "../flexWrapper/flexWrapper";
+
+
 <>
 <FlexWrapper>
 {data.map((item) => (
@@ -11,3 +15,4 @@
 ))}
 </FlexWrapper>
 </>
+export default ItemList;
