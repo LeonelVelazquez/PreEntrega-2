@@ -1,8 +1,10 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 function remeras() {
   return (
-    <div>remeras</div>
+    <h2>
+      gasda
+    </h2>
   )
 }
 
