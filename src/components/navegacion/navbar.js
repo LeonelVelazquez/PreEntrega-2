@@ -17,16 +17,16 @@ function Navbar() {
             <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/vasos">Vasos</Link>
+            <Link className="nav-link" to="/category/vasos">Vasos</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/remeras">Remeras</Link>
+            <Link className="nav-link" to="/category/remeras">Remeras</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/tazas">Tazas</Link>
+            <Link className="nav-link" to="/category/tazas">Tazas</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/set">Set de Jardin</Link>
+            <Link className="nav-link" to="/category/set">Set de Jardin</Link>
           </li>
           
         </ul>
@@ -41,4 +41,3 @@ function Navbar() {
 }
 
 export default Navbar;
- 

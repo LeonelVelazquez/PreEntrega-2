@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../button/Button";
 import "./cards.css";
 
 function Cards(props) {
-  const { title, price, detail, imgurl } = props;
+  const { id, title, price, detail, imgurl } = props;
   const [isActive, setIsActive] = useState(false);
   const handleClick = () => setIsActive(!isActive);
+  const urlDetail = `/item/${id}`;
 
   let classToggleBtn;
   if (isActive) classToggleBtn = "item-card_favicon favorite";
@@ -14,15 +16,18 @@ function Cards(props) {
   return (
     <div className="tarjetas">
       <div>
-        <img width="300px" src={imgurl} alt="Imagen" />
+        <Link to={urlDetail}>
+          <img width="300px" src={imgurl} alt="Imagen" />
+        </Link>
         <center>
           <div>
             <h3>{title}</h3>
             <h4>$ {price}</h4>
             <p>{detail}</p>
           </div>
-          <Button text={"Ver mas"} />
-
+          <Link to={urlDetail}>
+            <Button text={"Ver mas"} />
+          </Link>
           <button className={classToggleBtn} onClick={handleClick}>
             ❤️
           </button>

@@ -10,6 +10,7 @@ const ItemList = ({ item }) => {
                 {item.map((item) => (
                     <Cards
                         key={item.id}
+                        item={item.id}
                         title={item.title}
                         price={item.price}
                         detail={item.detail}
