@@ -1,3 +1,5 @@
+import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
+
 const databaseItemes = [
     {
         id: "1",
@@ -52,8 +54,8 @@ const databaseItemes = [
         title: "card 7",
         price: 45,
         detail: "lorem ipsum sararara",
-        imgurl: "../assets/img/Idolos.png",
-        category: "tazas",
+        imgurl: "../assets/img/Remeras.png",
+        category: "remeras",
     },
     {
         id: "8",
@@ -79,6 +81,7 @@ const databaseItemes = [
         imgurl: "../assets/img/Jardin.png",
         category: "set",
     },
+    
 ];
 
 function getItems() {
@@ -91,10 +94,10 @@ function getItems() {
 
 export function getSingleItem(itemid){
     return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(databaseItemes[0]);
-        }, 1);
+    setTimeout(() => {
+    resolve(databaseItemes.find((prod)=> prod.id === itemid));
+    }, 2000);
     })
-}
+    }
 
 export default getItems;

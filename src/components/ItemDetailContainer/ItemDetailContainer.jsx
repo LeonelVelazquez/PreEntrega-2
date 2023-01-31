@@ -1,24 +1,45 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 import { getSingleItem } from '../../services/mockAsyncService'
 import ItemListContainer from '../ItemListContainer/ItemListContainer'
+import ItemCount from '../ItemCount/ItemCount'
+import "./ItemDetail.css"
+
 
 function ItemDetailContainer() {
-  const [item, setItem] = useState([])
+  const [item, setItem] = useState({})
+  const {itemid} =useParams()
 
-  useEffect(() => {
-    getSingleItem().then((respuesta) => {
-      setItem(respuesta);
-    })
+  const onAdd = (qty) => {
+    alert(`Agregaste ${qty} productos`);
+  };
+
+useEffect(()=>{
+  getSingleItem(itemid)
+  .then((respuesta) => {
+    setItem(respuesta);
   })
+},[itemid])
+
 
   return (
-    <div className="car-detail_main">
+    
+    <center>
+      
+    <div className="card-detail_main">
       <div className="card-detail_img">
-        <img src={item.imgurl} alt={item.title} />
+        <img src={item.imgurl}alt={item.title} />
+      </div>
+      <div className="card-detail_detail">
+        <h1>{item.title}</h1>
+        <h2 ClassName="priceTag"> $ {item.price}</h2>
+        <small>{item.detail}</small>
+        <small><ItemCount onAdd={onAdd} initial={1} stock={7} /></small>
+         
       </div>
     </div>
+    </center>
   )
 }
 

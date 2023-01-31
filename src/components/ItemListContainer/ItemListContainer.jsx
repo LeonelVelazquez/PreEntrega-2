@@ -8,9 +8,6 @@ function ItemListContainer() {
   const [item, setItem] = useState([]);
   const {id}=useParams()
 
-  
-
- 
   useEffect(() => {
     getItems().then((respuesta) => {
       if(id){
